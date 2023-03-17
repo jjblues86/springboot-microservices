@@ -1,7 +1,7 @@
 package com.jeromejoof.employeeservice.controller;
 
+import com.jeromejoof.employeeservice.dto.APIResponseDto;
 import com.jeromejoof.employeeservice.dto.EmployeeDTO;
-import com.jeromejoof.employeeservice.repository.EmployeeRepository;
 import com.jeromejoof.employeeservice.service.EmployeeService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -25,10 +25,10 @@ public class EmployeeController {
 
     // Build Get Employee REST API
     @GetMapping("{id}")
-    public ResponseEntity<EmployeeDTO> getEmployee(@PathVariable("id") Long employeeId) {
-        EmployeeDTO employeeDTO = employeeService.getEmployeeById(employeeId);
+    public ResponseEntity<APIResponseDto> getEmployee(@PathVariable("id") Long employeeId) {
+        APIResponseDto apiResponseDto = employeeService.getEmployeeById(employeeId);
 
-        return new ResponseEntity<>(employeeDTO, HttpStatus.OK);
+        return new ResponseEntity<>(apiResponseDto, HttpStatus.OK);
     }
 
 }
